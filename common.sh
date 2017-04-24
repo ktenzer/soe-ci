@@ -51,7 +51,7 @@ function get_test_vm_list() {
 			[[ ! -s "${MODIFIED_CONTENT_FILE}" ]] || \
 			ssh -q -l ${PUSH_USER} -i ${RSA_ID} ${SATELLITE} \
 			"hammer --output yaml host info --name \"${I}\"" \
-				| grep "^Comment:" \
+				| grep "Comment:" \
 				| grep -Fqf "${MODIFIED_CONTENT_FILE}"
 		then
 			TEST_VM_LIST[$J]=$I
